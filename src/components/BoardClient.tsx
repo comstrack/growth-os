@@ -30,7 +30,7 @@ export function BoardClient({ creators }: { creators: Creator[] }) {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6">
+    <div className="px-4 py-6">
       <div className="mb-4">
         <h1 className="text-xl font-semibold">Pipeline de prospection</h1>
         <p className="text-sm text-stone-500 dark:text-stone-400">
@@ -40,7 +40,7 @@ export function BoardClient({ creators }: { creators: Creator[] }) {
         </p>
       </div>
 
-      <div className="flex gap-3 overflow-x-auto pb-4">
+      <div className="flex gap-2 overflow-x-auto pb-4">
         {STAGES.map((s) => {
           const list = creators.filter((c) => c.stage === s.key);
           const isOver = overStage === s.key;
@@ -56,7 +56,7 @@ export function BoardClient({ creators }: { creators: Creator[] }) {
                 e.preventDefault();
                 drop(s.key);
               }}
-              className={`w-64 shrink-0 rounded-xl p-1 transition-colors ${
+              className={`min-w-[150px] flex-1 rounded-xl p-1 transition-colors ${
                 isOver
                   ? "bg-emerald-500/10 ring-2 ring-emerald-500/60"
                   : "ring-2 ring-transparent"
